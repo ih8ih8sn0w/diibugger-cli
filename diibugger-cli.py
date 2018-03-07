@@ -550,6 +550,8 @@ while True:
                 address = exceptionState.gpr[int(addressStr[1:])]
             else:
                 address = int(addressStr, 16)
+            if address <= int(167772160):
+                address += 167772160
             bugger.toggleBreakPoint(address)
         elif cmd == "continue" or cmd == "c":
             bugger.continueBreak()
